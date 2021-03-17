@@ -2,8 +2,11 @@ package offer;
 
 import DataStructure.TreeNode;
 
+import java.awt.*;
+import java.util.Arrays;
 import java.util.Deque;
 import java.util.LinkedList;
+import java.util.List;
 
 public class Codec_37 {
     // 序列化和反序列化
@@ -15,14 +18,31 @@ public class Codec_37 {
     public String serialize1(TreeNode root) {
         // DFS先序遍历
         if (root == null) {
-            return result + "null";
+            result += "null";
+            return result;
         }
-        result += root.val;
+        result += root.val + ",";
         serialize1(root.left);
         serialize1(root.right);
         return result;
     }
-    public String serialize2(TreeNode root) {
+    public TreeNode deserialize1(String data) {
+        String[] temp = data.split(",");
+        List<String> list = new LinkedList<>(Arrays.asList(temp));
+        return reDeserialize1(list);
+    }
+    public TreeNode reDeserialize1(List<String> list){
+        if (list.get(0).equals("null")) {
+            list.remove(0);
+            return null;
+        }
+        TreeNode node = new TreeNode(Integer.parseInt(list.get(0)));
+        list.remove(0);
+        node.left = reDeserialize1(list);
+        node.right = reDeserialize1(list);
+        return node;
+    }
+        public String serialize2(TreeNode root) {
         // BFS遍历
         if (root == null){
             return "null";
@@ -50,7 +70,7 @@ public class Codec_37 {
 
     // Decodes your encoded data to tree.
 
-    public TreeNode deserialize1(String data) {
+    public TreeNode deserialize2(String data) {
         // BFS遍历后的反序列化
         // 注意遇到null时的处理
         // 这个使用队列是怎么想到的
