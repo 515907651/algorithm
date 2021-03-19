@@ -34,5 +34,32 @@ public class NumDistinct_115_hard {
         }
         return dp[0][0];
     }
+    public int numDistinct1(String s, String t) {
+        // 用正常的思路写一下，从0到i的那种
+        int m = s.length();
+        int n = t.length();
+        char temps;
+        char tempt;
+        if (m > n){
+            return 0;
+        }
+        int[][] dp = new int[m+1][n+1];
+        for (int i = 0; i <= m; i++) {
+            dp[i][0] = 1;
+        }
+
+        for (int i = 1; i < m; i++) {
+            temps = s.charAt(i-1);
+            for (int j = 1; j < n; j++) {
+                tempt = s.charAt(j-1);
+                if (temps == tempt) {
+                    dp[i][j] = dp[i-1][j-1] + dp[i-1][j];
+                } else {
+                    dp[i][j] = dp[i-1][j];
+                }
+            }
+        }
+        return dp[m][n];
+    }
 
 }
