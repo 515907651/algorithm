@@ -9,6 +9,37 @@ public class FindNthDigit_44_medium {
         // 1-9就直接是n
         // 最终还是放弃了挣扎看了题解
         // 对于数字n，首先求出它在字符串中对应的数字
+        // 首先确定是几位数
+        long num = n;
+        long max = 9;
+        long size = 1;
+        while (true) {
+            if (num - max * size < 0){
+                break;
+            }
+            num -= max * size;
+            size++;
+            max *= 10;
+        }
+        // 这时size代表数字n的位数
+        // num：比如是100以后的第num个字符
+        long current = num / size;
+        long remainder = num % size;
+        long currentNum = (long)Math.pow(10,size-1) + current;
+        System.out.println(currentNum);
+        if (remainder == 0){
+            // 个位数会少1
+/*
+            if (size ==1) {
+                return (int)current;
+            }
+*/
+            return (int)((currentNum - 1) % 10);
+        }
+        int result = 0;
+        // 怎么求该数字的第remainder位，转换为字符串和数字求
+        String sNum = new String(String.valueOf(currentNum));
+        return sNum.charAt((int)remainder-1) - '0';
     }
 
 }
