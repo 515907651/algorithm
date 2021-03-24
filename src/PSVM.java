@@ -6,7 +6,7 @@ import offer.*;
 
 public class PSVM {
     public static void main(String[] args) {
-        TranslateNum_46_medium temp = new TranslateNum_46_medium();
-        System.out.println(temp.translateNum(506));
+        LengthOfLongestSubstring_48_medium temp = new LengthOfLongestSubstring_48_medium();
+        System.out.println(temp.lengthOfLongestSubstring1("abcabcbb"));
     }
 }
