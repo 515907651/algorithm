@@ -1,6 +1,4 @@
-package Order;
-
-import java.util.Arrays;
+package sort;
 
 public class BucketSort {
     //这是计数排序，不是桶排序嗷

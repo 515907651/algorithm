@@ -1,4 +1,4 @@
-package Order;
+package sort;
 
 public class MyPow_16 {
     public static void main(String[] args) {
