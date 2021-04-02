@@ -7,12 +7,12 @@ import sort.MergeSort;
 
 public class PSVM {
     public static void main(String[] args) {
-        MergeSort sort = new MergeSort();
-        int[] a = {1,2,4};
-        int[] b = {1,3,5};
-        int[] c = sort.mergeArray(a,b);
-        for (int i = 0; i < c.length; i++) {
-            System.out.println(c[i]);
+        SearchRange_53_1_medium temp = new SearchRange_53_1_medium();
+        int[] nums = new int[]{5,7,7,8,8,10};
+        int target = 8;
+        int[] result = temp.searchRangeBi(nums, 8);
+        for (int i = 0; i < result.length; i++) {
+            System.out.println(result[i]);
         }
     }
 }
