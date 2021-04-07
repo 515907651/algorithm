@@ -8,8 +8,7 @@ import sort.MergeSort;
 
 public class PSVM {
     public static void main(String[] args) {
-        RemoveDuplicates_26_easy temp = new RemoveDuplicates_26_easy();
-        int[] a = new int[]{0,0,1,1,1,2,2,3,3,4};
-        System.out.println(temp.removeDuplicates(a));
+        Binary temp = new Binary();
+        System.out.println(temp.binaryFindRight2(new int[]{1,2,2,2,3}, 2));
     }
 }

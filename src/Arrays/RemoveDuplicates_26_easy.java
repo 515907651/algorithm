@@ -62,4 +62,31 @@ public class RemoveDuplicates_26_easy {
         }
         return i + 1;
     }
+    public int removeDuplicates_80_2(int[] nums) {
+        // 改需求了，要求剩余两次，整个hashmap记录就OK了，把之前代码改改就能用
+        // 果然程序员都讨厌改需求
+        // 暴力法蛮简单，但是双指针怎么写呢
+        if (nums == null || nums.length == 0) {
+            return 0;
+        }
+        int n = nums.length;
+        if (n <= 2) {
+            return n;
+        }
+        int i = 0;
+        int j = 1;
+        Arrays.sort(nums);
+        HashMap<Integer, Integer> map = new HashMap<>();
+        map.put(nums[i], 1);
+        while (j < n) {
+            if (map.getOrDefault(nums[j], 0) <= 1) {
+                i++;
+                nums[i] = nums[j];
+                map.put(nums[j], map.getOrDefault(nums[j], 0) + 1);
+            }
+            j++;
+        }
+        return i + 1;
+    }
+
 }
