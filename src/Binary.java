@@ -59,6 +59,7 @@ public class Binary {
             }
         }
         if (left == nums.length) {
+            // 左边界越界问题，一定要记得，出过几次错了
             return 0;
         }
         return nums[left] == target ? left : -1;

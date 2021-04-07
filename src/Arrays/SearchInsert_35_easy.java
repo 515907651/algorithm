@@ -17,7 +17,7 @@ public class SearchInsert_35_easy {
         }
         // 这里结果是left == right，所以返回left和right是一样的
         return left + 1;
-
+        // 这个left就代表着数组中小于target的数量
     }
 
 }
