@@ -8,7 +8,7 @@ public class Search_33_medium {
     public int search2(int[] nums, int target){
         // 非递归
         // 一分为二，去找有序的那一段，判断target是否在其中，在就搜索他，不在就去无序的那一边重复此过程
-        // 出了问题，在nums[mid] >= nums[left]这里，mid是向下取值的，有可能取到left。但是right是取不到的
+        // 出了问题，在nums[mid] >= nums[left]这里，mid是向下取值的，有可能取到left。但是right是取不到的7
         if (nums == null || nums.length == 0) {
             return -1;
         }

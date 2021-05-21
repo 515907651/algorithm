@@ -75,5 +75,27 @@ public class MajorityElement_39_easy {
         }
         return temp;
     }
+    public int majorityElement4(int[] nums) {
+        // 感觉之前写的投票法是不对的，等于0的时候要等于下一个数字，居然是对的，淦
+        // 按照自己的思路写写试试，这样才好理解嘛
+        if (nums.length <= 2) {
+            return nums[0];
+        }
+        int result = nums[0];
+        int count = 1;
+        for (int i = 1; i < nums.length; i++) {
+            if (count == 0) {
+                result = nums[i];
+                count++;
+                continue;
+            }
+            if (result == nums[i]) {
+                count++;
+            } else {
+                count--;
+            }
+        }
+        return result;
+    }
 
     }

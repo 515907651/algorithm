@@ -4,6 +4,7 @@ public class TreeToDoublyList_36_medium {
     Node1 head;
     Node1 pre;
     public Node1 treeToDoublyList(Node1 root) {
+        // 二叉树中序遍历，dfs(left),print(mid),dfs(right)
         if (root == null) {
             return null;
         }

@@ -13,7 +13,7 @@ public class ReverseWords_58_medium {
             return null;
         }
         s.trim();
-        String[] temp = s.split(" ");
+        String[] temp = s.split(" +");
         Collections.reverse(Arrays.asList(temp));
         return String.join(" ", temp);
     }

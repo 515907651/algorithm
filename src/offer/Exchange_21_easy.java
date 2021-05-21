@@ -7,6 +7,7 @@ public class Exchange_21_easy {
         int right = nums.length-1;
         int temp = 0;
         while (left<right){
+            // 要先交换在++和--，否则有越界的可能
             if (nums[left]%2==0&&nums[right]%2==1){
                 temp = nums[right];
                 nums[right] = nums[left];

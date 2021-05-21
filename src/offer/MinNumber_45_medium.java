@@ -25,6 +25,18 @@ public class MinNumber_45_medium {
                 }
             }
         });
+        // 试试lambda表达式的写法
+        PriorityQueue<String> queue1 = new PriorityQueue<String>((a, b) ->{
+            String s1 = a + b;
+            String s2 = b + a;
+            if (s1.compareTo(s2) > 0) {
+                return 1;
+            } if (s2.compareTo(s1) < 0) {
+                return -1;
+            } else {
+                return 0;
+            }
+        });
         for (int i = 0; i < nums.length; i++) {
             queue.offer(String.valueOf(nums[i]));
         }

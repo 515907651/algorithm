@@ -6,6 +6,10 @@ import java.util.Deque;
 import java.util.LinkedList;
 
 public class MinStack_30_easy {
+    // 思路就是建立两个栈，一个栈a用来存放所有数据，另一个栈b存放最小值
+    // 当加入值时，如果比最小值小，就加入最小栈，否则最小栈再加入一个最小值
+    // pop时，两栈都pop
+    // gettop就返回a的栈顶数据，getmin就返回b的栈顶元素
     Deque<Integer> mainStack;
     Deque<Integer> assistStack;
     public MinStack_30_easy() {

@@ -1,5 +1,7 @@
 package offer;
 
+import org.junit.Test;
+
 import java.util.HashMap;
 import java.util.HashSet;
 
@@ -14,6 +16,7 @@ public class LengthOfLongestSubstring_48_medium {
     public int lengthOfLongestSubstring(String s) {
         // 还是不能一遍ac
         // 要进行缩窗啊。
+        // 这个方法不对的，比如pwwk这种情况下，无法排除ww的重复，必须缩窗
         if (s == null || s.length() == 0) {
             return 0;
         }
@@ -39,6 +42,11 @@ public class LengthOfLongestSubstring_48_medium {
         return right - left ;
     }
 
+    @Test
+    public void tempTest() {
+        String s = "pwwkew";
+        System.out.println(lengthOfLongestSubstring(s));
+    }
     public int lengthOfLongestSubstring1(String s) {
         // 还是老老实实缩窗吧，慢点就慢点
         if (s == null || s.length() == 0) {
