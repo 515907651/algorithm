@@ -68,4 +68,17 @@ public class LowestCommonAncestor_68_easy {
         }
         return root;
     }
-}
+    public TreeNode lowestCommonAncestor3(TreeNode root, TreeNode p, TreeNode q) {
+        // 题解写的不用递归的第二种方法
+        while (true) {
+            if (p.val < root.val && q.val < root.val) {
+                root = root.left;
+            } else if (p.val > root.val && q.val > root.val) {
+                root = root.right;
+            } else {
+                break;
+            }
+        }
+        return root;
+    }
+    }
