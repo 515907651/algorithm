@@ -4,6 +4,7 @@ import java.util.*;
 
 public class _127_ladderLength_hard {
     // 最少再看两遍，太复杂，太绕了
+    // 还是不会，太难了
     Map<String, Integer> wordID = new HashMap<>();
     List<List<Integer>> edge = new ArrayList<>();
     int wordNum = 0;
