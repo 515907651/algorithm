@@ -57,6 +57,26 @@ public class MyPow_16 {
         // 递归算法
         return n>0?quickMul2(x,n):1/quickMul2(x,-n);
     }
+    public double myPow4(double x, int n) {
+        // 终于看到一个讲解的特别好的题解
+        // 从幂的二进制入手，将幂分解为各个二进制位上不为0的数的乘积
+        // 比如11，1011，那么他就是2 + 2 ^ 2 + 2 ^ 3
+        // 对应于x就是，(x ^ 2) * (x ^ 4) * (x ^ 8)
+        double ans = 1;
+        if (n < 0) {
+            x = 1/x;
+            n = -n;
+        }
+        while (n > 0) {
+            if ((n&1)==1) {
+                ans *= x;
+            }
+            x= x*x;
+            n = n >> 1;
+        }
+        return ans;
+    }
+
 
 
 

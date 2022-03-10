@@ -4,7 +4,7 @@ import org.junit.Test;
 
 public class ReversePairs_51_hard {
     // 归并排序的过程中，获取逆序对的个数
-    public int reversePairs(int[] nums) {
+    public int reversePairs1(int[] nums) {
         if (nums == null || nums.length < 2) {
             return 0;
         }
@@ -65,6 +65,60 @@ public class ReversePairs_51_hard {
     public void tempTest() {
         int[] array = new int[]{7,5,6,4};
         System.out.println(reversePairs(array));
+    }
+    int count;
+    public int reversePairs(int[] nums) {
+        if (nums == null || nums.length < 2) {
+            return 0;
+        }
+        count = 0;
+        mergeSort(nums, 0, nums.length - 1);
+        return count;
+    }
+
+    private void mergeSort(int[] nums, int l, int r) {
+        if (l >= r) {
+            return;
+        }
+        int mid = l + (r - l) / 2;
+        mergeSort(nums, l, mid);
+        mergeSort(nums, mid + 1, r);
+        merge(nums, l, mid, r);
+    }
+
+    private void merge(int[] nums, int l, int mid, int r) {
+        if (l >= r) {
+            return;
+        }
+        int[] temp = new int[r - l + 1];
+        int i = l;
+        int j = mid + 1;
+        int index = 0;
+        while (i <= mid && j <= r) {
+            if (nums[i] <= nums[j]) {
+                temp[index] = nums[i];
+                index++;
+                i++;
+            } else {
+                temp[index] = nums[j];
+                index++;
+                j++;
+                count += mid - i + 1;
+            }
+        }
+        while (i <= mid) {
+            temp[index] = nums[i];
+            index++;
+            i++;
+        }
+        while (j <= r) {
+            temp[index] = nums[j];
+            index++;
+            j++;
+        }
+        for (int k = l; k <= r; k++) {
+            nums[k] = temp[k - l];
+        }
     }
 }
 /*
